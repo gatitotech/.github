@@ -5,56 +5,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Company | Gatito Labs</title>
     <meta name="description" content="How Gatito Labs thinks about being a company: independent, human, and not overly corporate.">
-    <meta name="theme-color" content="#542d14">
-    <link rel="icon" href="assets/banner.png" type="image/png">
+    <meta name="theme-color" content="#160e09">
+    <link rel="icon" href="assets/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="smoke-layer" aria-hidden="true"></div>
+    <div class="ambient" aria-hidden="true"></div>
 
-    <main class="labs-shell">
-        <nav class="labs-nav" aria-label="Gatito Labs navigation">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <nav class="site-nav container" aria-label="Gatito Labs navigation">
             <a class="brand" href="index.html" aria-label="Gatito Labs home">
-                <img src="assets/banner.png" alt="" width="40" height="40">
-                <span>Gatito Labs</span>
+                <span class="brand-mark"><img src="assets/logo_trans.webp" alt=""></span>
+                <span class="brand-wordmark">
+                    <strong>Gatito Labs</strong>
+                </span>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="navMenu">
                 <a href="index.html">Home</a>
                 <a href="mission.html">Mission</a>
                 <a href="why.html">Why</a>
-                <a href="projects.html">Projects</a>
+                <a href="products.html">Products</a>
                 <a class="active" href="company.html">Company</a>
             </div>
+            <a class="nav-cta" href="products.html">
+                View products
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
         </nav>
+    </header>
 
-        <header class="page-hero reveal">
-            <p class="eyebrow">How Corporate Are We?</p>
-            <h1>We're only human.</h1>
-            <p>Business can be on the same level as normal people. We are no different.</p>
+    <div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
+
+    <main id="main">
+        <header class="page-hero">
+            <div class="hero-scene" aria-hidden="true">
+                <div class="scene-depth" data-depth="back">
+                    <span class="blob blob--ember" style="top:16%;right:-8%"></span>
+                </div>
+                <div class="scene-depth" data-depth="mid">
+                    <span class="blob blob--gold" style="top:8%;right:20%"></span>
+                </div>
+            </div>
+            <div class="container hero-inner">
+                <h1 class="display" data-reveal>Who we are at <span class="grad-text">Gatito Labs</span></h1>
+                <p class="lede" data-reveal>Business can be on the same level as normal people. We are no different.</p>
+            </div>
         </header>
 
-        <section class="narrative reveal">
-            <p>Gatito Labs is small, independent, and intentionally close to the products it builds. We do not want the company to feel distant from the people using its software.</p>
-            <p>In the end, we are normal people running this place. That shows up in the tone, the product decisions, and the belief that a company can be useful without becoming cold or extractive.</p>
+        <section class="statement">
+            <div class="container">
+                <p data-reveal>A company can be useful <em>without becoming cold.</em></p>
+                <p class="sub" data-reveal>Gatito Labs is small, independent, and intentionally close to the products it builds. In the end, we're normal people running this place. We strive for that to show in the tone, the product decisions, and the belief that software doesn't have to be extractive to be good.</p>
+            </div>
         </section>
 
-        <section class="content-grid">
-            <article class="statement reveal">
-                <span class="section-kicker">Small By Design</span>
-                <h2>Less ceremony, more care.</h2>
-                <p>A smaller company can move deliberately, talk plainly, and keep product decisions closer to user needs.</p>
-            </article>
+        <section class="hscroll" id="operating">
+            <div class="hscroll-pin">
+                <div class="container hscroll-head">
+                    <div>
+                        <h2 class="display">Less ceremony, more care.</h2>
+                    </div>
+                    <span class="hint">
+                        Keep scrolling
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </span>
+                </div>
 
-            <article class="statement reveal">
-                <span class="section-kicker">Plainspoken</span>
-                <h2>No corporate fog.</h2>
-                <p>We prefer honest language, readable policies, and products that explain themselves through how they work.</p>
-            </article>
+                <div class="hscroll-viewport">
+                    <div class="hscroll-track" data-reveal-group>
+                        <article class="tilt-card" style="--glow:var(--gold-glow)">
+                            <span class="card-glow"></span>
+                            <span class="card-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9" stroke-dasharray="2 4"/></svg>
+                            </span>
+                            <h3>Small by design</h3>
+                            <p>A smaller company can move deliberately, talk plainly, and keep product decisions closer to user needs.</p>
+                        </article>
+
+                        <article class="tilt-card" style="--glow:var(--sage-glow)">
+                            <span class="card-glow"></span>
+                            <span class="card-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+                            </span>
+                            <h3>Plainspoken</h3>
+                            <p>Honest language, readable policies, and products that explain themselves through how they work.</p>
+                        </article>
+
+                        <article class="tilt-card" style="--glow:var(--sky-glow)">
+                            <span class="card-glow"></span>
+                            <span class="card-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                            </span>
+                            <h3>Close to users</h3>
+                            <p>We build the kind of software we'd want ourselves and our friends to rely on every day.</p>
+                        </article>
+
+                        <article class="tilt-card" style="--glow:var(--gold-glow)">
+                            <span class="card-glow"></span>
+                            <div class="card-foot" style="flex-direction:column;align-items:flex-start;gap:10px">
+                                <span class="stat-big"><span data-count="100">0</span><sup style="font-size:0.4em;color:var(--gold)">%</sup></span>
+                                <span>independent.</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="container hscroll-progress" aria-hidden="true"><i></i></div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2 class="display" data-reveal>A company, not a corporation.</h2>
+                <p data-reveal>The best proof is in what we build.</p>
+                <a class="btn btn--primary" data-reveal href="mailto:company@gatita.tech">
+                    Contact us
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+            </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a class="brand" href="index.html" aria-label="Gatito Labs home">
+                        <span class="brand-mark"><img src="assets/logo_trans.webp" alt=""></span>
+                        <span class="brand-wordmark">
+                            <strong>Gatito Labs</strong>
+                        </span>
+                    </a>
+                    <p>An independent company building free, privacy-first software for a safer and smoother internet.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="index.html">Home</a>
+                        <a href="mission.html">Mission</a>
+                        <a href="why.html">Why we work</a>
+                        <a href="company.html">Company</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Products</h4>
+                        <a href="products.html">All products</a>
+                        <a href="https://gatita.tech" target="_blank" rel="noopener">Gatita Ask</a>
+                        <a href="https://clankr.tech/" target="_blank" rel="noopener">CL4NKR</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Gatito Labs. Website designed by <a href="https://gatita.tech" target="_blank" rel="noopener">Gatita AI</a></span>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

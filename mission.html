@@ -5,57 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission | Gatito Labs</title>
     <meta name="description" content="The Gatito Labs mission: safer, smoother, privacy-first software powered by renewable infrastructure.">
-    <meta name="theme-color" content="#542d14">
-    <link rel="icon" href="assets/banner.png" type="image/png">
+    <meta name="theme-color" content="#160e09">
+    <link rel="icon" href="assets/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="smoke-layer" aria-hidden="true"></div>
+    <div class="ambient" aria-hidden="true"></div>
 
-    <main class="labs-shell">
-        <nav class="labs-nav" aria-label="Gatito Labs navigation">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <nav class="site-nav container" aria-label="Gatito Labs navigation">
             <a class="brand" href="index.html" aria-label="Gatito Labs home">
-                <img src="assets/banner.png" alt="" width="40" height="40">
-                <span>Gatito Labs</span>
+                <span class="brand-mark"><img src="assets/logo_trans.webp" alt=""></span>
+                <span class="brand-wordmark">
+                    <strong>Gatito Labs</strong>
+                </span>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="navMenu">
                 <a href="index.html">Home</a>
                 <a class="active" href="mission.html">Mission</a>
                 <a href="why.html">Why</a>
-                <a href="projects.html">Projects</a>
+                <a href="products.html">Products</a>
                 <a href="company.html">Company</a>
             </div>
+            <a class="nav-cta" href="products.html">
+                View products
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
         </nav>
+    </header>
 
-        <header class="page-hero reveal">
-            <p class="eyebrow">Our Mission</p>
-            <h1>Build for the safety of the future.</h1>
-            <p>Gatito Labs prioritizes privacy, sustainability, and user safety across every product decision.</p>
+    <div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
+
+    <main id="main">
+        <header class="page-hero">
+            <div class="hero-scene" aria-hidden="true">
+                <div class="scene-depth" data-depth="back">
+                    <span class="blob blob--ember" style="top:18%;left:auto;right:-8%"></span>
+                </div>
+                <div class="scene-depth" data-depth="mid">
+                    <span class="blob blob--sage" style="top:10%;left:auto;right:22%"></span>
+                </div>
+            </div>
+            <div class="container hero-inner">
+                <h1 class="display" data-reveal>Build for the safety of <span class="grad-text">the future.</span></h1>
+                <p class="lede" data-reveal>Gatito Labs prioritizes privacy, sustainability, and user safety across every product decision.</p>
+            </div>
         </header>
 
-        <section class="content-grid">
-            <article class="statement reveal">
-                <span class="section-kicker">Priority</span>
-                <h2>Safety before scale.</h2>
-                <p>We have one main goal that we prioritize with all of our services: the safety of the future. That means building products that are useful without normalizing tracking, abuse, or hidden costs.</p>
-            </article>
+        <section class="statement">
+            <div class="container">
+                <p data-reveal>We have <em>one goal</em> when building our products.</p>
+                <p class="sub" data-reveal>Make a better product. Build products that are useful without normalizing tracking, abuse, or hidden costs. Free software can be transparent, careful, and pleasant to use. Our mission is to make that feel normal instead of exceptional.</p>
+            </div>
+        </section>
 
-            <article class="statement reveal">
-                <span class="section-kicker">Infrastructure</span>
-                <h2>Cleaner systems by default.</h2>
-                <p>Our Gatito infrastructure runs on renewable energy, has zero carbon emissions, and does not use a cloud provider. The goal is to keep the stack eco-friendly and morally aligned with the products it supports.</p>
-            </article>
+        <section class="hscroll" id="principles">
+            <div class="hscroll-pin">
+                <div class="container hscroll-head">
+                    <div>
+                        <h2 class="display">The mission, in practice.</h2>
+                    </div>
+                    <span class="hint">
+                        Keep scrolling
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </span>
+                </div>
 
-            <article class="statement reveal">
-                <span class="section-kicker">Standard</span>
-                <h2>Useful should not mean invasive.</h2>
-                <p>Free software can be transparent, careful, and pleasant to use. Our mission is to make that feel normal instead of exceptional.</p>
-            </article>
+                <div class="hscroll-viewport">
+                    <div class="hscroll-track" data-reveal-group>
+                        <article class="tilt-card" style="--glow:var(--gold-glow)">
+                            <span class="card-glow"></span>
+                            <span class="card-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/></svg>
+                            </span>
+                            <h3>Safety before scale</h3>
+                            <p>Products that stay useful without normalizing tracking, abuse, or hidden costs. We'd rather grow slowly than grow wrong.</p>
+                        </article>
+
+                        <article class="tilt-card" style="--glow:var(--sage-glow)">
+                            <span class="card-glow"></span>
+                            <span class="card-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c0-8 5-14 16-16-1 9-6 15-16 16z"/><path d="M5 21c3-6 6-9 11-12"/></svg>
+                            </span>
+                            <h3>Cleaner by default</h3>
+                            <p>Renewable energy, zero carbon emissions, and no cloud provider. A 100% eco-friendly, morally aligned stack.</p>
+                        </article>
+
+                        <article class="tilt-card" style="--glow:var(--sky-glow)">
+                            <span class="card-glow"></span>
+                            <span class="card-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l1.7 4.3L18 10l-4.3 1.7L12 16l-1.7-4.3L6 10l4.3-1.7L12 4z"/><path d="M18.5 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z"/></svg>
+                            </span>
+                            <h3>Useful, not invasive</h3>
+                            <p>Transparent, careful, and pleasant to use by design.</p>
+                        </article>
+
+                        <article class="tilt-card" style="--glow:var(--gold-glow)">
+                            <span class="card-glow"></span>
+                            <div class="card-foot" style="flex-direction:column;align-items:flex-start;gap:10px">
+                                <span class="stat-big"><span data-count="0">0</span></span>
+                                <span>tonnes of CO₂ across our entire operation.</span>
+                            </div>
+                        </article>
+
+                        <article class="tilt-card" style="--glow:var(--sage-glow)">
+                            <span class="card-glow"></span>
+                            <div class="card-foot" style="flex-direction:column;align-items:flex-start;gap:10px">
+                                <span class="stat-big"><span data-count="100">0</span><sup style="font-size:0.4em;color:var(--gold)">%</sup></span>
+                                <span>renewable energy powering what we run.</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="container hscroll-progress" aria-hidden="true"><i></i></div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2 class="display" data-reveal>The mission, in action.</h2>
+                <p data-reveal>Every product we ship is a small step toward that future.</p>
+                <a class="btn btn--primary" data-reveal href="products.html">
+                    See the products
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+            </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a class="brand" href="index.html" aria-label="Gatito Labs home">
+                        <span class="brand-mark"><img src="assets/logo_trans.webp" alt=""></span>
+                        <span class="brand-wordmark">
+                            <strong>Gatito Labs</strong>
+                        </span>
+                    </a>
+                    <p>An independent company building free, privacy-first software for a safer and smoother internet.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="index.html">Home</a>
+                        <a href="mission.html">Mission</a>
+                        <a href="why.html">Why we work</a>
+                        <a href="company.html">Company</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Products</h4>
+                        <a href="products.html">All products</a>
+                        <a href="https://gatita.tech" target="_blank" rel="noopener">Gatita Ask</a>
+                        <a href="https://clankr.tech/" target="_blank" rel="noopener">CL4NKR</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Gatito Labs. Website designed by <a href="https://gatita.tech" target="_blank" rel="noopener">Gatita AI</a></span>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

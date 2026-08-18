@@ -5,57 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why We Work | Gatito Labs</title>
     <meta name="description" content="Why Gatito Labs builds free, privacy-first software for normal people.">
-    <meta name="theme-color" content="#542d14">
-    <link rel="icon" href="assets/banner.png" type="image/png">
+    <meta name="theme-color" content="#160e09">
+    <link rel="icon" href="assets/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="smoke-layer" aria-hidden="true"></div>
+    <div class="ambient" aria-hidden="true"></div>
 
-    <main class="labs-shell">
-        <nav class="labs-nav" aria-label="Gatito Labs navigation">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <nav class="site-nav container" aria-label="Gatito Labs navigation">
             <a class="brand" href="index.html" aria-label="Gatito Labs home">
-                <img src="assets/banner.png" alt="" width="40" height="40">
-                <span>Gatito Labs</span>
+                <span class="brand-mark"><img src="assets/logo_trans.webp" alt=""></span>
+                <span class="brand-wordmark">
+                    <strong>Gatito Labs</strong>
+                </span>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="navMenu">
                 <a href="index.html">Home</a>
                 <a href="mission.html">Mission</a>
                 <a class="active" href="why.html">Why</a>
-                <a href="projects.html">Projects</a>
+                <a href="products.html">Products</a>
                 <a href="company.html">Company</a>
             </div>
+            <a class="nav-cta" href="products.html">
+                View products
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
         </nav>
+    </header>
 
-        <header class="page-hero reveal">
-            <p class="eyebrow">Why We Work</p>
-            <h1>We work for you.</h1>
-            <p>Our free apps are intended to do more good than the secret, hidden bad every other "free" thing does.</p>
+    <div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
+
+    <main id="main">
+        <header class="page-hero">
+            <div class="hero-scene" aria-hidden="true">
+                <div class="scene-depth" data-depth="back">
+                    <span class="blob blob--gold" style="top:14%;right:-6%"></span>
+                </div>
+                <div class="scene-depth" data-depth="mid">
+                    <span class="blob blob--sky" style="top:6%;right:20%"></span>
+                </div>
+            </div>
+            <div class="container hero-inner">
+                <h1 class="display" data-reveal>We work <span class="grad-text">for you.</span></h1>
+                <p class="lede" data-reveal>Our free apps are meant to do more good than the secret, hidden bad every other "free" thing does.</p>
+            </div>
         </header>
 
-        <section class="narrative reveal">
-            <p>We want that norm to change. Free products should not need to quietly profile people, make the interface worse, or treat users as raw material for someone else's growth plan.</p>
-            <p>Gatito Labs exists to build software that feels more direct: the product helps you, the privacy terms make sense, and the experience stays smooth because that is the whole point.</p>
+        <section class="statement">
+            <div class="container">
+                <p data-reveal>Free shouldn't mean <em>you're the price.</em></p>
+                <p class="sub" data-reveal>We want that norm to change. Free products shouldn't need to quietly profile people, make the interface worse, or treat users as raw material for someone else's growth. Gatito Labs exists to build software that feels more direct: the product helps you, the privacy terms make sense, and the experience stays smooth because that's the whole point.</p>
+            </div>
         </section>
 
-        <section class="values-band reveal" aria-label="Why Gatito Labs works">
-            <div>
-                <strong>For users</strong>
-                <span>We design around the person using the app, not a hidden ad or data business.</span>
+        <section class="hscroll" id="reasons">
+            <div class="hscroll-pin">
+                <div class="container hscroll-head">
+                    <div>
+                        <h2 class="display">Why Gatito Labs exists.</h2>
+                    </div>
+                    <span class="hint">
+                        Keep scrolling
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </span>
+                </div>
+
+                <div class="hscroll-viewport">
+                    <div class="hscroll-track" data-reveal-group>
+                        <article class="tilt-card" style="--glow:var(--gold-glow)">
+                            <span class="card-glow"></span>
+                            <span class="card-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.2 2.7-5 6-5s6 1.8 6 5"/><circle cx="17.5" cy="9" r="2.4"/><path d="M15.5 15.4c2.3.4 4.5 2 4.5 4.6"/></svg>
+                            </span>
+                            <h3>For users</h3>
+                            <p>We design around the person using the app. Never will there be a hidden ad or data business behind it.</p>
+                        </article>
+
+                        <article class="tilt-card" style="--glow:var(--sage-glow)">
+                            <span class="card-glow"></span>
+                            <span class="card-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                            </span>
+                            <h3>For trust</h3>
+                            <p>Simple limits, clear product behavior, and background collection the industry would never expect (none!).</p>
+                        </article>
+
+                        <article class="tilt-card" style="--glow:var(--sky-glow)">
+                            <span class="card-glow"></span>
+                            <span class="card-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5.5"/></svg>
+                            </span>
+                            <h3>For better norms</h3>
+                            <p>We want privacy-first free software to feel like the default. Not a pleasant surprise.</p>
+                        </article>
+
+                        <article class="tilt-card" style="--glow:var(--gold-glow)">
+                            <span class="card-glow"></span>
+                            <span class="card-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9-9c-1.2-2.8.4-6 3.5-6 2 0 3.5 1 4.5 2.5.3.5.7 1 1 1.5.3-.5.7-1 1-1.5 1-1.5 2.5-2.5 4.5-2.5 3.1 0 4.7 3.2 3.5 6-2 4.5-9 9-9 9z"/></svg>
+                            </span>
+                            <h3>Made with care</h3>
+                            <p>From our readable policies to an interface that doesn't fight you, every detail is a small act of respect.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="container hscroll-progress" aria-hidden="true"><i></i></div>
             </div>
-            <div>
-                <strong>For trust</strong>
-                <span>Simple limits, clear product behavior, and less background collection.</span>
-            </div>
-            <div>
-                <strong>For better norms</strong>
-                <span>We want privacy-first free software to feel expected.</span>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2 class="display" data-reveal>Built on that promise.</h2>
+                <p data-reveal>See the tools that put these principles first.</p>
+                <a class="btn btn--primary" data-reveal href="products.html">
+                    Browse our products
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
             </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a class="brand" href="index.html" aria-label="Gatito Labs home">
+                        <span class="brand-mark"><img src="assets/logo_trans.webp" alt=""></span>
+                        <span class="brand-wordmark">
+                            <strong>Gatito Labs</strong>
+                            <span>Software studio</span>
+                        </span>
+                    </a>
+                    <p>An independent company building free, privacy-first software for a safer and smoother internet.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="index.html">Home</a>
+                        <a href="mission.html">Mission</a>
+                        <a href="why.html">Why we work</a>
+                        <a href="company.html">Company</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Products</h4>
+                        <a href="products.html">All products</a>
+                        <a href="https://gatita.tech" target="_blank" rel="noopener">Gatita Ask</a>
+                        <a href="https://clankr.tech/" target="_blank" rel="noopener">CL4NKR</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Gatito Labs. Built with care.</span>
+                <span>Independent · Privacy-first · Renewable</span>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
