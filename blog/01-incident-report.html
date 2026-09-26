@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--
+  Incident report post. Built from template.html.
+  All styles live in styles.css under "Blog — post template".
+  TODO before publishing: add exact dates/times if you want them,
+  and set the real share URL in the post-nav Share link.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident report: a break-in on our network | Gatito Labs</title>
+    <meta name="description" content="What happened when attackers got into our network router, what they touched, and why no data was ever breached.">
+    <meta name="theme-color" content="#160e09">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Incident report: a break-in on our network">
+    <meta property="og:description" content="Attackers reached our router and abused our Cloudflare credentials. No data was accessed.">
+    <meta property="og:image" content="assets/banner.png">
+    <meta property="article:published_time" content="2026-09-26">
+
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="ambient" aria-hidden="true"></div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <nav class="site-nav container" aria-label="Gatito Labs navigation">
+            <a class="brand" href="index.html" aria-label="Gatito Labs home">
+                <span class="brand-mark"><img src="assets/logo_trans.webp" alt=""></span>
+                <span class="brand-wordmark">
+                    <strong>Gatito Labs</strong>
+                </span>
+            </a>
+            <div class="nav-links" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="mission.html">Mission</a>
+                <a href="why.html">Why</a>
+                <a href="products.html">Products</a>
+                <a href="company.html">Company</a>
+                <a class="active" href="blog.html">Blog</a>
+            </div>
+            <a class="nav-cta" href="products.html">
+                View products
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+        </nav>
+    </header>
+
+    <div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
+
+    <main id="main">
+
+        <!-- ============================ POST HERO ============================ -->
+        <header class="post-hero">
+            <div class="hero-scene" aria-hidden="true">
+                <div class="scene-depth" data-depth="back">
+                    <span class="blob blob--ember" style="top:16%;right:-8%"></span>
+                </div>
+                <div class="scene-depth" data-depth="mid">
+                    <span class="blob blob--gold" style="top:8%;right:20%"></span>
+                </div>
+            </div>
+
+            <div class="container hero-inner">
+
+                <h1 class="display" data-reveal>Someone broke into our network. <span class="grad-text">Here's what happened.</span></h1>
+
+                <p class="post-lede" data-reveal>Attackers reached our router, stole Cloudflare credentials stored on it, and used them to show a malicious popup on our websites. They never reached the servers where our data lives. This report explains exactly what happened, in plain language.</p>
+
+                <div class="post-meta" data-reveal>
+                    <span class="byline">
+                        <span class="avatar" aria-hidden="true">CO</span>
+                        <span>By <a href="#authors">Cooper O.</a></span>
+                    </span>
+                    <span class="meta-dot" aria-hidden="true"></span>
+                    <time datetime="2026-09-26">September 26, 2026</time>
+                    <span class="meta-dot" aria-hidden="true"></span>
+                    <span>6 min read</span>
+                </div>
+            </div>
+        </header>
+
+        
+
+        <!-- ============================ ARTICLE ============================ -->
+        <article class="article">
+            <div class="article-body">
+
+                <h2 id="summary">The short version.</h2>
+
+                <p>We had a real security incident. A group of attackers broke into the router at the edge of our company network. On that router, they found credentials for our Cloudflare tunnels, stored in a place we did not know was reachable. They copied those credentials, used them to pretend to be us inside Cloudflare, and installed a script that displayed a malicious fake captcha popup on every Gatito Labs website.</p>
+
+                <p>Here is the part that matters most, and we want to be completely clear about it:</p>
+
+                <ul>
+                    <li><strong>No personal data was accessed.</strong> Not viewed, not copied, not deleted.</li>
+                    <li><strong>No database was touched.</strong> Our databases live on the deepest layer of our network, hidden and encrypted. The attackers never got near them.</li>
+                    <li><strong>The attackers never entered either of our servers.</strong> They were stopped at the very first layer, the router.</li>
+                </ul>
+
+                
+                <p>They reached the front gate. They never made it through a single door of the house.</p>
+                
+
+                <h2 id="our-setup">How our network is built.</h2>
+
+                <p>To understand what happened, it helps to understand how our systems are layered. From the outside in, there are four layers. Each one is harder to reach than the one before it, and each one needs its own tools and credentials to enter.</p>
+
+                <ol>
+                    <li><strong>The public address.</strong> The only thing the whole internet can see. It is the front of the building.</li>
+                    <li><strong>The router.</strong> The first private layer. It forwards traffic to where it needs to go, and it holds its own login system and storage.</li>
+                    <li><strong>The mother server.</strong> The second private layer. It handles real workloads and coordinates everything. You cannot reach it from the internet at all, only through the router, with the right credentials.</li>
+                    <li><strong>The processing server.</strong> The deepest layer. It is unreachable from the internet and from the mother server without specific tooling and keys. This is where our databases live, hidden and encrypted.</li>
+                </ol>
+
+                <p>The attackers got into layer one. They never got into layer two or three. This layered design is exactly why the damage stopped where it did.</p>
+
+                <h2 id="what-happened">What happened, step by step.</h2>
+
+                <p>We reconstructed the attack from router logs and Cloudflare records. Here is the full chain, in simple terms.</p>
+
+                <h3>1. The open door.</h3>
+                <p>One of our domains, <code>vpn.coopr.tech</code>, pointed directly at our company router. This domain is a personal address belonging to our founder, used for VPN access. Unlike every company domain we run, it was not sitting behind Cloudflare's protection. It was a raw, direct line to the router.</p>
+
+                <h3>2. The knocking.</h3>
+                <p>The attackers used that open line to hammer the router with SSH login attempts. SSH is the standard tool for logging into a machine remotely. They tried again and again, looking for a way in.</p>
+
+                <h3>3. The guest key.</h3>
+                <p>At some point they succeeded. They created a guest profile on the router, and that profile gave them access to the router's own disk. From there, they could read what was stored on the device itself.</p>
+
+                <h3>4. The spare keys on the table.</h3>
+                <p>Our Cloudflare tunnel credentials had been stored on that router, in a location we believed was not accessible. We were wrong. The attackers found them and copied them onto their own machine. This was our mistake, and we own it fully. Credentials should never have been sitting on network equipment.</p>
+
+                <h3>5. Wearing our uniform.</h3>
+                <p>With valid credentials on their own machine, the attackers could act as us inside Cloudflare. They inserted a Worker, which is a small script Cloudflare runs on our domains, into every Gatito Labs domain. That script served a malicious fake captcha popup to our visitors.</p>
+
+                <p>Based on the evidence we collected, the attacker group operated from Russia. We are continuing to review the logs, and we will update this report if anything material changes.</p>
+
+                <h2 id="visitors">If you saw the popup.</h2>
+
+                <p>The popup was designed to look like a normal captcha, the "prove you are human" check people see on many websites. It was not ours, and it was removed from all of our domains as soon as we found it.</p>
+
+                <p>We have found no evidence that the popup collected anything from visitors. If you saw it, closing the tab was enough. If you interacted with it and something on your device has behaved strangely since, run a malware scan as a normal precaution, and you are welcome to contact us. We are sorry you saw it. Visitors should never be caught in the middle of an attack on us.</p>
+
+                <h2 id="reached">What they touched, and what they never reached.</h2>
+
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>What the attackers reached</th>
+                                <th>What they never reached</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>The company router, through a guest profile</td>
+                                <td>The mother server, at any point</td>
+                            </tr>
+                            <tr>
+                                <td>Parts of our Cloudflare account, using the stolen tunnel credentials</td>
+                                <td>The processing server, where the databases live</td>
+                            </tr>
+                            <tr>
+                                <td>Our website visitors, who were shown a fake captcha popup</td>
+                                <td>Any database, personal data, or customer data</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 id="investigation">What the investigation found.</h2>
+
+                <p>After locking everything down, we went through our systems line by line. We checked access logs on the mother server and the processing server. We checked database records and their encryption. We audited every Worker, every DNS record, and every credential in our Cloudflare account.</p>
+
+                <p>The result: there is no sign that the attackers viewed, downloaded, or changed any data. Our databases sit on the processing server, hidden and encrypted, reachable only with tools the attackers never had. A minimal backup exists on the mother server, and the logs show zero access to it during the incident window. The attackers had their hands on the doormat. They never crossed the threshold.</p>
+
+                <h2 id="response">What we did about it.</h2>
+
+                <ol>
+                    <li>Revoked and rotated every Cloudflare credential and key the attackers could have seen.</li>
+                    <li>Removed the malicious Worker from every domain and confirmed the popups were gone.</li>
+                    <li>Wiped and rebuilt the router. Guest access is gone, and all router credentials were replaced.</li>
+                    <li>Cut the direct line from <code>vpn.coopr.tech</code> to the router and moved it behind Cloudflare like everything else.</li>
+                    <li>Reviewed the full Cloudflare configuration for any other changes the attackers may have made.</li>
+                    <li>Audited logs on the mother server and the processing server to confirm neither was ever accessed.</li>
+                    <li>Moved all credentials out of network devices and into proper secret storage.</li>
+                </ol>
+
+                <h2 id="changes">What we are changing.</h2>
+
+                <p>An incident like this is a failure, and the honest response is to fix the root cause, not just the symptoms. These rules now apply across the whole company:</p>
+
+                <ul>
+                    <li><strong>No credentials on network hardware, ever.</strong> Secrets live in proper secret management, nowhere else.</li>
+                    <li><strong>Every domain sits behind Cloudflare.</strong> Personal domains included. No direct lines to internal equipment, no exceptions.</li>
+                    <li><strong>SSH is locked down.</strong> Key-only login, strict rate limits, and no exposure to the open internet.</li>
+                    <li><strong>Alerts on every change.</strong> Any new Worker or configuration change in Cloudflare now pings us immediately, so nothing lives on our sites for even an hour.</li>
+                    <li><strong>Regular audits.</strong> We now review router and Cloudflare configurations on a schedule, not just after something goes wrong.</li>
+                </ul>
+
+                <hr>
+
+                <h2 id="why">Why we published this.</h2>
+
+                <p>We had targets on our back and we took a hit. We could have quietly fixed it and said nothing. That is what a lot of companies do. But we tell our users that the product should never be the user, and that promise does not stop at security incidents.</p>
+
+                <p>You deserve to know what happened, what it means for you, which is nothing, and what we changed so it cannot happen the same way twice. If you have questions about any part of this report, you can reach the CEO at <a href="mailto:ceo@gatito.tech">ceo@gatito.tech</a>. I'll try to read and answer every message.</p>
+
+                <p>Thank you for trusting us. We intend to keep earning it.</p>
+            </div>
+
+
+            <!-- ========================= BACK / SHARE ========================= -->
+            <div class="post-nav">
+                <a class="text-link" href="blog.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+                    Back to all posts
+                </a>
+                <a class="text-link" href="https://x.com/intent/post?url=https://gatito.tech/blog/01-incident-report" target="_blank" rel="noopener">
+                    Share
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                </a>
+            </div>
+        </article>
+
+        <!-- ======================== AUTHOR CARD ======================== -->
+        <section class="section" id="authors">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="display">Written by</h2>
+                    <p>The people who answered for this incident.</p>
+                </div>
+
+                <div class="authors-grid" data-reveal-group>
+                    <article class="author-card" data-reveal>
+                        <div class="author-head">
+                            <span class="avatar" aria-hidden="true">GL</span>
+                            <div>
+                                <h3>Cooper O</h3>
+                                <span class="role">Founder & CEO</span>
+                            </div>
+                        </div>
+                        <p>Founder & CEO of Gatito Labs. Community Manager and Lead Researcher at Gatita Ask.</p>
+                        <div class="author-links">
+                            <a class="text-link" href="mailto:ceo@gatito.tech">Email <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                            <a class="text-link" href="https://gatito.tech" target="_blank" rel="noopener">Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================ CTA BAND ============================ -->
+        <section class="cta-band">
+            <div class="container">
+                <h2 class="display" data-reveal>Questions about this report?</h2>
+                <p data-reveal>Reach us directly. Every message gets read by a human, and every human here takes this seriously.</p>
+                <a class="btn btn--primary" data-reveal href="mailto:hello@gatito.tech">
+                    Contact us
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a class="brand" href="index.html" aria-label="Gatito Labs home">
+                        <span class="brand-mark"><img src="assets/logo_trans.webp" alt=""></span>
+                        <span class="brand-wordmark">
+                            <strong>Gatito Labs</strong>
+                        </span>
+                    </a>
+                    <p>An independent company building free, privacy-first software for a safer and smoother internet.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="index.html">Home</a>
+                        <a href="mission.html">Mission</a>
+                        <a href="why.html">Why we work</a>
+                        <a href="company.html">Company</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Products</h4>
+                        <a href="products.html">All products</a>
+                        <a href="https://gatita.tech" target="_blank" rel="noopener">Gatita Ask</a>
+                        <a href="https://clankr.tech/" target="_blank" rel="noopener">CL4NKR</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Gatito Labs. Website designed by <a href="https://gatita.tech" target="_blank" rel="noopener">Gatita AI</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
