@@ -5,38 +5,38 @@
    ========================================================================= */
 
 :root {
-    /* Surfaces */
-    --bg-0: #0f0a07;
-    --bg-1: #160e09;
-    --bg-2: #1e130c;
-    --bg-3: #29190f;
-    --panel: rgba(255, 246, 234, 0.03);
-    --panel-strong: rgba(41, 25, 15, 0.72);
-    --glass: rgba(22, 14, 9, 0.66);
+    /* Surfaces — harmonized around the Gatito Labs logo (#1a1917 -> #562804) */
+    --bg-0: #141210;
+    --bg-1: #1a1917;
+    --bg-2: #241910;
+    --bg-3: #331e0d;
+    --panel: rgba(255, 232, 218, 0.035);
+    --panel-strong: rgba(43, 29, 18, 0.78);
+    --glass: rgba(26, 25, 23, 0.72);
 
     /* Lines */
-    --line: rgba(232, 184, 122, 0.14);
-    --line-soft: rgba(232, 184, 122, 0.09);
-    --line-strong: rgba(232, 184, 122, 0.38);
+    --line: rgba(255, 232, 218, 0.14);
+    --line-soft: rgba(255, 232, 218, 0.09);
+    --line-strong: rgba(240, 183, 137, 0.38);
 
-    /* Text */
-    --ink: #fff6ea;
-    --ink-soft: #ecdbc5;
-    --muted: #b39a7d;
-    --muted-2: #8a7157;
+    /* Text — exact #ffe8da peach-cream from the Gatito Labs mark */
+    --ink: #ffe8da;
+    --ink-soft: #ebd2c2;
+    --muted: #b89b88;
+    --muted-2: #8a705f;
 
-    /* Accents — warm theme preserved, nudged brighter so it pops */
-    --gold: #e8b87a;
-    --amber: #d69052;
-    --rust: #a05f2f;
-    --ember: #5a2f16;
+    /* Accents — warm roasted amber & peach-cream from the full logo */
+    --gold: #f0b789;
+    --amber: #c97b42;
+    --rust: #8f4818;
+    --ember: #562804;
     --sage: #9ec4a9;
-    --sky: #9bc6d9;
-    --rose: #e2a489;
+    --sky: #5aa9e6;
+    --rose: #e8a48c;
 
-    --gold-glow: rgba(232, 184, 122, 0.28);
+    --gold-glow: rgba(240, 183, 137, 0.28);
     --sage-glow: rgba(158, 196, 169, 0.18);
-    --sky-glow: rgba(155, 198, 217, 0.16);
+    --sky-glow: rgba(90, 169, 230, 0.18);
 
     /* Elevation */
     --shadow-soft: 0 12px 40px rgba(8, 4, 2, 0.4);
@@ -93,9 +93,9 @@ body {
     font-size: 16px;
     line-height: 1.6;
     background:
-        radial-gradient(1400px 900px at 82% -12%, rgba(90, 47, 22, 0.42), transparent 58%),
-        radial-gradient(1000px 720px at -8% 24%, rgba(158, 196, 169, 0.10), transparent 55%),
-        radial-gradient(900px 700px at 50% 118%, rgba(155, 198, 217, 0.08), transparent 60%),
+        radial-gradient(1350px 880px at 78% -10%, rgba(86, 40, 4, 0.56), transparent 60%),
+        radial-gradient(980px 700px at -6% 28%, rgba(86, 40, 4, 0.24), transparent 56%),
+        radial-gradient(900px 700px at 50% 118%, rgba(43, 29, 18, 0.45), transparent 60%),
         linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 46%, var(--bg-2) 100%);
     background-attachment: fixed;
 }
@@ -234,29 +234,16 @@ section {
 
 .brand-mark {
     position: relative;
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     flex: 0 0 auto;
     display: grid;
     place-items: center;
-    border: 1px solid var(--line-strong);
-    border-radius: 14px;
-    background: linear-gradient(135deg, rgba(232, 184, 122, 0.16), rgba(90, 47, 22, 0.5));
-    box-shadow: inset 0 1px 0 rgba(255, 246, 234, 0.14), 0 8px 24px rgba(90, 47, 22, 0.35);
-    overflow: hidden;
-}
-
-.brand-mark::after {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255, 246, 234, 0.22), transparent 55%);
-    content: "";
-    pointer-events: none;
 }
 
 .brand-mark img {
-    width: 78%;
-    height: 78%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
@@ -2051,5 +2038,839 @@ section {
 
     .article-body {
         font-size: 1rem;
+    }
+}
+
+/* =========================================================================
+   Careers page (careers.html)
+   Filters, customizable job cards, expandable details, apply panel.
+   ========================================================================= */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.tag--sky {
+    color: var(--sky);
+    border-color: rgba(155, 198, 217, 0.32);
+    background: rgba(155, 198, 217, 0.08);
+}
+
+.tag--rose {
+    color: var(--rose);
+    border-color: rgba(226, 164, 137, 0.34);
+    background: rgba(226, 164, 137, 0.09);
+}
+
+.btn--sm {
+    min-height: 42px;
+    padding: 0 18px;
+    font-size: 0.86rem;
+    gap: 8px;
+}
+
+.btn--sm svg {
+    width: 15px;
+    height: 15px;
+}
+
+.btn--disabled {
+    color: var(--muted);
+    border: 1px solid var(--line-soft);
+    background: rgba(255, 246, 234, 0.02);
+    cursor: default;
+    pointer-events: none;
+}
+
+.btn.is-copied {
+    border-color: rgba(158, 196, 169, 0.55);
+    color: var(--sage);
+    background: rgba(158, 196, 169, 0.1);
+}
+
+.cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+
+/* ---------------- Preview mode banner ---------------- */
+.demo-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 36px;
+    padding: 18px 22px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-md);
+    background: linear-gradient(120deg, rgba(232, 184, 122, 0.1), rgba(41, 25, 15, 0.78));
+    box-shadow: var(--shadow-soft);
+}
+
+.demo-banner-copy {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 16px;
+    min-width: 0;
+    flex: 1 1 320px;
+}
+
+.demo-banner-copy p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ---------------- Open roles header ---------------- */
+.careers-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px 32px;
+    margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.careers-head-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.careers-results-count {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ---------------- Filter bar ---------------- */
+.jobs-filters {
+    margin-bottom: 24px;
+}
+
+.jobs-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px 20px;
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: var(--panel);
+}
+
+.filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-pill);
+    color: var(--ink-soft);
+    background: rgba(255, 246, 234, 0.02);
+    font-size: 0.84rem;
+    font-weight: 700;
+    transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+
+.filter-pill:hover {
+    color: var(--ink);
+    border-color: var(--line-strong);
+    background: rgba(255, 246, 234, 0.05);
+}
+
+.filter-pill.is-active {
+    color: #241206;
+    border-color: transparent;
+    background: linear-gradient(120deg, var(--gold), var(--amber));
+}
+
+.filter-controls {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    flex: 0 1 auto;
+}
+
+.filter-select,
+.filter-search {
+    min-height: 40px;
+    padding: 9px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-pill);
+    color: var(--ink);
+    background-color: rgba(15, 10, 7, 0.65);
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.3;
+    transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+
+.filter-select {
+    flex: 0 0 auto;
+    padding: 9px 16px;
+    cursor: pointer;
+}
+
+.filter-select option {
+    background-color: var(--bg-1);
+    color: var(--ink);
+}
+
+.filter-search {
+    width: 240px;
+    max-width: 100%;
+}
+
+.filter-search::placeholder {
+    color: var(--muted-2);
+}
+
+.filter-select:focus,
+.filter-search:focus {
+    outline: none;
+    border-color: var(--gold);
+    background-color: rgba(15, 10, 7, 0.9);
+}
+
+/* ---------------- Job cards ---------------- */
+.jobs-list {
+    display: grid;
+    gap: 20px;
+}
+
+.job-card {
+    --card-glow: var(--gold-glow);
+    --card-accent: var(--gold);
+    position: relative;
+    padding: clamp(24px, 3.2vw, 36px);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: var(--panel);
+    overflow: hidden;
+    scroll-margin-top: calc(var(--header-h) + 24px);
+    transition: border-color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+
+.job-card:hover,
+.job-card.is-expanded {
+    border-color: var(--line-strong);
+    background: var(--panel-strong);
+    box-shadow: var(--shadow-soft);
+}
+
+.job-card--gold {
+    --card-glow: var(--gold-glow);
+    --card-accent: var(--gold);
+}
+
+.job-card--sage {
+    --card-glow: var(--sage-glow);
+    --card-accent: var(--sage);
+}
+
+.job-card--sky {
+    --card-glow: var(--sky-glow);
+    --card-accent: var(--sky);
+}
+
+.job-card--rose {
+    --card-glow: rgba(226, 164, 137, 0.22);
+    --card-accent: var(--rose);
+}
+
+.job-card--featured {
+    border-color: var(--line-strong);
+    background:
+        linear-gradient(155deg, rgba(232, 184, 122, 0.08), rgba(158, 196, 169, 0.03) 48%, transparent),
+        var(--panel-strong);
+}
+
+.job-card--closed {
+    opacity: 0.78;
+}
+
+.job-card-glow {
+    position: absolute;
+    top: -40%;
+    right: -14%;
+    width: 340px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--card-glow);
+    filter: blur(75px);
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.job-card-head,
+.job-card-main,
+.job-details {
+    position: relative;
+    z-index: 1;
+}
+
+.job-card-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 16px;
+    margin-bottom: 16px;
+}
+
+.job-kicker-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+}
+
+.job-dept {
+    color: var(--card-accent);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.job-team {
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.job-team::before {
+    content: "·";
+    margin-right: 10px;
+    color: var(--muted-2);
+}
+
+.job-status-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.job-tag-icon {
+    display: inline-flex;
+    margin-right: 5px;
+}
+
+.job-tag-icon svg {
+    width: 12px;
+    height: 12px;
+}
+
+.job-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 12px;
+    border-radius: var(--r-pill);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--line);
+}
+
+.job-status::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 10px currentColor;
+    content: "";
+}
+
+.job-status--sage {
+    color: var(--sage);
+    border-color: rgba(158, 196, 169, 0.34);
+    background: rgba(158, 196, 169, 0.08);
+}
+
+.job-status--gold {
+    color: var(--gold);
+    border-color: var(--line-strong);
+    background: rgba(232, 184, 122, 0.1);
+}
+
+.job-status--rose {
+    color: var(--rose);
+    border-color: rgba(226, 164, 137, 0.36);
+    background: rgba(226, 164, 137, 0.1);
+}
+
+.job-status--muted {
+    color: var(--muted);
+    border-color: var(--line-soft);
+    background: rgba(255, 246, 234, 0.03);
+}
+
+.job-status--muted::before {
+    box-shadow: none;
+}
+
+.job-card-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px 28px;
+}
+
+.job-card-copy {
+    flex: 1 1 420px;
+    min-width: 0;
+}
+
+.job-title {
+    margin: 0;
+    font-family: "Fraunces", "Georgia", serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.05rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+}
+
+.job-facts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.job-fact {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.job-fact--accent {
+    color: var(--ink-soft);
+}
+
+.job-icon-svg {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.job-icon-svg svg {
+    width: 15px;
+    height: 15px;
+}
+
+.job-summary {
+    margin: 14px 0 0;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.62;
+    max-width: 56ch;
+}
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.job-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex: 0 0 auto;
+    padding-top: 4px;
+}
+
+.job-chevron {
+    display: inline-flex;
+    transition: transform var(--dur-base) var(--ease-out);
+}
+
+.job-chevron svg {
+    width: 15px;
+    height: 15px;
+}
+
+.job-card.is-expanded .job-chevron {
+    transform: rotate(180deg);
+}
+
+/* ---------------- Expanded job details ---------------- */
+.job-details {
+    margin-top: 26px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line-soft);
+    display: grid;
+    gap: 26px;
+}
+
+.job-details[hidden] {
+    display: none;
+}
+
+.job-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 0;
+}
+
+.job-meta-item {
+    padding: 14px 16px;
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-sm);
+    background: rgba(15, 10, 7, 0.42);
+}
+
+.job-meta-item dt {
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.job-meta-item dd {
+    margin: 5px 0 0;
+    color: var(--ink);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.job-sections {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 32px;
+}
+
+.job-section h4 {
+    margin: 0 0 12px;
+    font-family: "Fraunces", "Georgia", serif;
+    font-size: 1.18rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+.job-section p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.job-section p + p {
+    margin-top: 10px;
+}
+
+.job-bullets,
+.job-steps {
+    margin: 0;
+    padding-left: 1.3em;
+    display: grid;
+    gap: 8px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.job-bullets li::marker,
+.job-steps li::marker {
+    color: var(--card-accent);
+    font-weight: 700;
+}
+
+.job-apply-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px 24px;
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: linear-gradient(135deg, rgba(232, 184, 122, 0.08), rgba(15, 10, 7, 0.65));
+}
+
+.job-apply-copy {
+    flex: 1 1 320px;
+}
+
+.job-apply-eyebrow {
+    display: inline-block;
+    margin-bottom: 6px;
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.job-apply-copy p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.94rem;
+    line-height: 1.6;
+}
+
+.job-apply-note {
+    margin-top: 8px !important;
+    color: var(--muted) !important;
+    font-size: 0.84rem !important;
+}
+
+.job-apply-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ---------------- Empty & no-match states ---------------- */
+.jobs-empty,
+.jobs-no-match {
+    padding: clamp(36px, 6vw, 60px) clamp(24px, 4vw, 48px);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background:
+        linear-gradient(155deg, rgba(232, 184, 122, 0.06), rgba(158, 196, 169, 0.03) 50%, transparent),
+        var(--panel-strong);
+    text-align: center;
+}
+
+.jobs-empty h3 {
+    margin: 20px auto 0;
+    font-size: clamp(1.75rem, 3.8vw, 2.7rem);
+    max-width: 18em;
+}
+
+.jobs-empty p {
+    margin: 16px auto 0;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 44ch;
+}
+
+.jobs-empty-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.jobs-no-match p {
+    margin: 0 0 18px;
+    color: var(--ink-soft);
+    font-size: 1rem;
+}
+
+/* ---------------- How to apply panel ---------------- */
+.apply-panel {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    gap: clamp(24px, 4vw, 44px);
+    margin-top: 28px;
+    padding: clamp(28px, 4vw, 44px);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background:
+        linear-gradient(155deg, rgba(232, 184, 122, 0.06), rgba(158, 196, 169, 0.02) 55%, transparent),
+        var(--panel-strong);
+}
+
+.apply-checklist h3 {
+    margin: 0 0 10px;
+    font-family: "Fraunces", "Georgia", serif;
+    font-size: clamp(1.45rem, 2.6vw, 1.95rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+}
+
+.apply-sub {
+    margin: 0 0 22px;
+    color: var(--muted);
+    font-size: 0.96rem;
+}
+
+.careers-checklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+}
+
+.careers-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.careers-checklist strong {
+    color: var(--ink);
+}
+
+.check-dot {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto;
+    margin-top: 1px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(158, 196, 169, 0.38);
+    border-radius: 50%;
+    color: var(--sage);
+    background: rgba(158, 196, 169, 0.1);
+}
+
+.check-dot svg {
+    width: 13px;
+    height: 13px;
+}
+
+.apply-inbox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: clamp(22px, 3vw, 30px);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-md);
+    background: rgba(15, 10, 7, 0.62);
+}
+
+.apply-email-address {
+    font-family: "Fraunces", "Georgia", serif;
+    font-size: clamp(1.45rem, 2.8vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    word-break: break-word;
+    transition: color var(--dur-fast) var(--ease-out);
+}
+
+.apply-email-address:hover {
+    color: var(--gold);
+}
+
+.apply-subject-hint {
+    width: 100%;
+    display: grid;
+    gap: 6px;
+    padding: 12px 14px;
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-sm);
+    background: rgba(255, 246, 234, 0.03);
+}
+
+.apply-subject-hint span {
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.apply-subject-hint code {
+    color: var(--gold);
+    font-family: "SFMono-Regular", "Cascadia Code", Consolas, "Liberation Mono", monospace;
+    font-size: 0.85rem;
+    word-break: break-word;
+}
+
+.apply-inbox-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.apply-privacy-note {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+    .careers-head-meta {
+        align-items: flex-start;
+    }
+
+    .job-card-main {
+        flex-direction: column;
+    }
+
+    .job-actions {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .job-sections,
+    .apply-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-controls {
+        flex-wrap: wrap;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .filter-search {
+        flex: 1 1 200px;
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .job-actions .btn,
+    .job-apply-actions .btn,
+    .apply-inbox-actions .btn,
+    .jobs-empty-actions .btn,
+    .cta-actions .btn {
+        width: 100%;
     }
 }
