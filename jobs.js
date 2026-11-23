@@ -239,8 +239,8 @@ window.GATITO_CAREERS = {
         },
 
         {
-            id: "marketing-manager",
-            title: "Marketing Manager",
+            id: "content-creator-commission",
+            title: "Content Creator (Commission)",
             hidden: false,
             featured: false,
             status: "open",
@@ -249,7 +249,7 @@ window.GATITO_CAREERS = {
             department: "Marketing",
             team: "Gatito Labs",
             location: "Remote (Worldwide)",
-            type: "Volunteer / Performance-based",
+            type: "Commission / Flexible",
             compensation: "$0.25 per 10 likes",
             experience: "Open to anyone",
             posted: "Nov 2026",
@@ -313,7 +313,7 @@ window.GATITO_CAREERS = {
             ],
             application: {
                 email: "careers@gatito.tech",
-                subject: "[Application] Marketing Manager - Your Name",
+                subject: "[Application] Content Creator (Commission) - Your Name",
                 prompt:
                     "Send a quick note to sign up! Include your X, Instagram, and/or TikTok handles, any posts or videos you've made before (if any), and a quick idea for a post or short video pitching Gatita Ask or Gatita Studio.",
                 attachmentsNote:
