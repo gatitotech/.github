@@ -239,6 +239,90 @@ window.GATITO_CAREERS = {
         },
 
         {
+            id: "marketing-manager",
+            title: "Marketing Manager",
+            hidden: false,
+            featured: false,
+            status: "open",
+            statusLabel: "Open role",
+            accent: "sage",
+            department: "Marketing",
+            team: "Gatito Labs",
+            location: "Remote (Worldwide)",
+            type: "Volunteer / Performance-based",
+            compensation: "$0.25 per 10 likes",
+            experience: "Open to anyone",
+            posted: "Nov 2026",
+            deadline: "Open until filled",
+            summary:
+                "Sign up to help spread the word about Gatito Labs across X, Instagram, and TikTok - flexible, volunteer-style, and paid at $0.25 for every 10 genuine likes.",
+            description: [
+                "Great independent software still needs people to find it. This is a flexible, low-commitment, volunteer-style role where you sign up to share Gatito Labs across X, Instagram, and TikTok - turning product updates and our privacy-first mission into posts, reels, and short videos people actually want to watch and share.",
+                "Instead of fixed hours or corporate quotas, pay is simple and performance-based: you earn $0.25 for every 10 genuine likes on your posts. No hype, no rage-bait, and no creepy ad tracking - just honest humans sharing tools they believe in.",
+            ],
+            tags: [
+                { label: "$0.25 / 10 likes", tone: "gold" },
+                { label: "X", tone: "sage" },
+                { label: "Instagram", tone: "rose" },
+                { label: "TikTok", tone: "sky" },
+            ],
+            meta: [
+                { label: "Pay structure", value: "$0.25 per 10 genuine likes" },
+                { label: "Commitment", value: "Volunteer-style, no set hours" },
+                { label: "Channels", value: "X, Instagram & TikTok" },
+            ],
+            responsibilities: [
+                "Create and share engaging, plainspoken posts, threads, reels, and short-form videos on X, Instagram, and TikTok for Gatita Ask, Gatita Studio, Gatita AI API, and Gatita Bote.",
+                "Highlight real features, quick demos, and privacy-first wins that resonate organically with everyday users.",
+                "Keep the tone authentic, approachable, and aligned with Gatito Labs' independent ethos.",
+            ],
+            requirements: [
+                "Clear, natural, human voice with zero corporate jargon.",
+                "Familiarity with X, Instagram, or TikTok and what makes posts or short videos genuinely interesting to real people.",
+                "Organic engagement only - no botted, bought, or artificial likes.",
+            ],
+            niceToHave: [
+                "Experience creating short-form videos, reels, or posts on X, Instagram, or TikTok.",
+                "Comfort making quick screen-recorded demos or light graphics.",
+                "Genuine interest in free, privacy-first software and AI tools.",
+            ],
+            benefits: [
+                "Earn $0.25 for every 10 genuine likes your approved posts bring in - simple and transparent.",
+                "Zero set hours or quotas - contribute on your own schedule from anywhere.",
+                "Direct access to the team and early previews of upcoming Gatito Labs releases.",
+            ],
+            customSections: [
+                {
+                    heading: "How payouts work",
+                    type: "list",
+                    items: [
+                        "Rate: $0.25 per 10 genuine likes on approved Gatito Labs posts across X, Instagram, and TikTok.",
+                        "Organic only: likes must come from real people (no bots, engagement pods, or purchased likes).",
+                        "No minimum hours: post as often or as casually as you like once you're signed up.",
+                    ],
+                },
+                {
+                    heading: "How to get started",
+                    type: "steps",
+                    items: [
+                        "Send a quick email to sign up and share your X, Instagram, or TikTok handles.",
+                        "Get synced with the team on upcoming launches and brand voice.",
+                        "Start posting and earn $0.25 for every 10 genuine likes.",
+                    ],
+                },
+            ],
+            application: {
+                email: "careers@gatito.tech",
+                subject: "[Application] Marketing Manager - Your Name",
+                prompt:
+                    "Send a quick note to sign up! Include your X, Instagram, and/or TikTok handles, any posts or videos you've made before (if any), and a quick idea for a post or short video pitching Gatita Ask or Gatita Studio.",
+                attachmentsNote:
+                    "No resume needed - just your handles and a quick post idea.",
+                ctaLabel: "Sign up for this role",
+            },
+        },
+
+        {
             id: "professional-designer-ai-training",
             title: "Professional Designer (AI Training)",
             hidden: false,
